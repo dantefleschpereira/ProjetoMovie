@@ -28,7 +28,7 @@ namespace MovieWeb.Controllers
                                             orderby m.Genre.Name
                                             select m.Genre.Name;
 
-            var movies = from m in _context.Movies
+            var movies = from m in _context.Movies.Include("Genre")
                          select m;
 
             if (!string.IsNullOrEmpty(searchString))
