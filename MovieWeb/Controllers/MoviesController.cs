@@ -24,9 +24,9 @@ namespace MovieWeb.Controllers
         public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
             // Use LINQ to get list of genres.
-            IQueryable<Genre> genreQuery = from m in _context.Movies
-                                            orderby m.Genre
-                                            select m.Genre;
+            IQueryable<String> genreQuery = from m in _context.Movies
+                                            orderby m.Genre.Name
+                                            select m.Genre.Name;
 
             var movies = from m in _context.Movies
                          select m;
@@ -50,11 +50,12 @@ namespace MovieWeb.Controllers
             return View(movieGenreVM);
         }
 
-       /* [HttpPost]
+        [HttpPost]
         public string Index(string searchString, bool notUsed)
         {
             return "From [HttpPost]Index: filter on " + searchString;
-        } */  
+        }
+       
 
 
         // GET: Movies/Details/5
