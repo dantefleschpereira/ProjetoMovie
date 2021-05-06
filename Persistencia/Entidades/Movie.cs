@@ -26,12 +26,11 @@ namespace Persistencia.Entidades
 
         [Display(Name = "Faturamento")]
         [DataType(DataType.Currency)]
-        [Column(TypeName = "decimal(18, 2)")]
+        [RegularExpression(@"^(?!0|\.00)[0-9]+(,\d{3})*(.[0-9]{0,2})$")]
         public decimal Gross { get; set; }
 
         [Display(Name = "Nota")]
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-        [StringLength(5)]
+        [RegularExpression(@"^(?!0|\.00)[0-9]+(,\d{3})*(.[0-9]{0,2})$")] 
         [Required]
         public double Rating { get; set; }
 

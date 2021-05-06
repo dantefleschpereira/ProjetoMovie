@@ -10,9 +10,13 @@ namespace Persistencia.Entidades
         public int GenreId { get; set; }
 
         [Display(Name="Gênero")]
+        [StringLength(20, MinimumLength = 3)]
+        [Required]
         public string Name { get; set; }
 
         [Display(Name = "Descrição")]
+        [StringLength(180, MinimumLength = 3)]
+        [Required]
         public string Description { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }
