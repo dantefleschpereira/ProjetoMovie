@@ -108,7 +108,7 @@ namespace MovieWeb.Controllers
             {
                 return NotFound();
             }
-
+            var movie2 = await _context.Movies.Include(i => i.Genre).
             var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {

@@ -34,7 +34,13 @@ namespace Persistencia.Entidades
         [Required]
         public double Rating { get; set; }
 
+        
         public int GenreID { get; set; }
+
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
+
         public virtual Genre Genre { get; set; }
 
         public virtual ICollection<ActorMovie> Characters { get; set; }
