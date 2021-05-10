@@ -21,6 +21,10 @@ namespace Persistencia.Entidades
         [Required]
         public DateTime DateBirth { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
+
         public virtual ICollection<ActorMovie> Characters { get; set; }
 
     }

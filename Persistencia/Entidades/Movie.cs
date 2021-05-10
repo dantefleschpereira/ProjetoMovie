@@ -11,7 +11,7 @@ namespace Persistencia.Entidades
         public int MovieId { get; set; }
 
         [Display(Name = "Filme")]
-        [StringLength(60, MinimumLength = 3)]
+        [StringLength(80, MinimumLength = 3)]
         [Required]
         public string Title { get; set; }
 
@@ -37,7 +37,12 @@ namespace Persistencia.Entidades
         public int GenreID { get; set; }
         public virtual Genre Genre { get; set; }
 
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
+
         public virtual ICollection<ActorMovie> Characters { get; set; }
+
+
     }
 
 }
